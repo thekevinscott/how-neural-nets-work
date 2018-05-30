@@ -2,6 +2,7 @@
   "name": "how-neural-nets-work",
   "version": "0.1.0",
   "private": true,
+  "homepage": "http://thekevinscott.github.io/how-neural-nets-work/",
   "dependencies": {
     "@fortawesome/react-fontawesome": "^0.0.20",
     "autoprefixer": "7.1.6",
@@ -48,7 +49,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "deploy": "gh-pages -d docs",
+    "deploy": "gh-pages -d build",
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
