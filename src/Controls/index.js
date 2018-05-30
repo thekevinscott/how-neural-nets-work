@@ -3,12 +3,10 @@ import React, { Component } from 'react';
 // import faCoffee from '@fortawesome/fontawesome-free-solid/faCoffee';
 import styles from "./styles.scss";
 
-console.log(styles);
-
 class Controls extends Component {
   render() {
     return (
-      <div className="controls">controls</div>
+      <div className={styles.controls}>controls</div>
     );
   }
 }
