@@ -18,7 +18,7 @@ class TemperatureDataScatter extends Component {
           transitionDuration: `${this.props.duration}ms`,
         }}
       >
-        I am number two!
+        This is average temperatures
       </div>
     );
   }
