@@ -1,0 +1,15 @@
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  height: 100%;
+  overflow: hidden;
+
+  > * {
+    transition-timing-function: ease-in-out;
+  }
+}

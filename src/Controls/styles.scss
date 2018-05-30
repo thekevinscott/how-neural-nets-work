@@ -1,3 +1,25 @@
 .controls {
-  background: red;
+  box-sizing: border-box;
+  position: fixed;
+  bottom: 0px;
+  padding: 20px;
+  width: 100%;
+  height: 100px;
+
+  a {
+    position: absolute;
+    transition-duration: 0.3s;
+
+    &.disabled {
+      color: #EEE;
+    }
+
+    &:first-child {
+      left: 20px;
+    }
+
+    &:last-child {
+      right: 20px;
+    }
+  }
 }

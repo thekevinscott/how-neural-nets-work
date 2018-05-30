@@ -1,0 +1,31 @@
+.world {
+  left: 0%;
+  top: 160px;
+  position: absolute;
+  transition-timing-function: ease-in-out;
+  transition-duration: 100ms;
+  opacity: 0;
+
+  &.enteringBefore {
+    left: -20%;
+  }
+  &.enteringAfter {
+    left: 20%;
+  }
+  &.entered {
+    left: 0%;
+    opacity: 1;
+  }
+  &.exitingBefore {
+    left: -20%;
+  }
+  &.exitingAfter {
+    left: 20%;
+  }
+  &.exitedBefore {
+    left: -20%;
+  }
+  &.exitedAfter {
+    left: 20%;
+  }
+}

@@ -1,0 +1,49 @@
+.intro {
+  h1 {
+    transition-duration: 1000ms;
+
+    &:last-child {
+      transition-delay: 0.8s;
+    }
+  }
+
+  &.entering {
+    h1 {
+      opacity: 0;
+      padding-top: 20px;
+    }
+  }
+
+  &.entered {
+    h1 {
+      opacity: 1;
+      padding-top: 0px;
+    }
+  }
+
+  &.exiting, &.exited {
+    h1 {
+      &:last-child {
+        transition-delay: 0.0s;
+      }
+    }
+  }
+
+  &.exiting {
+    h1 {
+      opacity: 1;
+      padding-top: 20px;
+    }
+  }
+
+  &.exited {
+    h1 {
+      opacity: 0;
+      padding-top: 20px;
+
+      &:last-child {
+        padding-top: 0;
+      }
+    }
+  }
+}
