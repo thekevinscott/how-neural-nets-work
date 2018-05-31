@@ -5,6 +5,7 @@ import styles from './styles.scss';
 import Chart from "components/Chart";
 import Toggle from "components/Toggle";
 import spec from "./spec.json";
+import ease from 'eases/circ-out';
 
 const compose = (...fns) =>
   fns.reverse().filter(fn => fn).reduce((prevFn, nextFn) =>
@@ -40,16 +41,6 @@ const fromMean = data => {
   }));
 };
 
-const prepareSpec = data => ({
-  ...spec,
-  data: [
-    {
-      name: "source",
-      values: data,
-    },
-  ],
-});
-
     // {
     //   "type": "line",
     //   "from": {"data": "source"},
@@ -80,20 +71,90 @@ const colorOptions = [{
   label: "Show colors by hemisphere",
 }];
 
+const DURATION = 1000;
+
 class TemperatureDataScatter extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      amount: 0,
       view: dataOptions[0].value,
       color: colorOptions[0].value,
+      data: props.data.map(point => ({
+        ...point,
+        temp: 0,
+      })),
     };
+  }
+
+  componentDidMount() {
+    setTimeout(() => {
+      this.updateData(this.state);
+    }, 1000);
+  }
+
+  updateData = ({
+    color,
+    view,
+  } = {}) => {
+    this.beginAnimating(compose(
+      color === "hemispheres" ? data => data.map(point => ({
+        ...point,
+        label: point.isNorthern,
+      })) : null,
+      view === "diff" ? fromMean : null,
+      parseData,
+    )(this.props.data));
+  }
+
+  parseData2 = (data, startingData) => {
+    this.setState({
+      data: compose(
+        points => points.map((point, index) => {
+          const target = point.temp;
+          const start = startingData[index].temp;
+          const diff = target - start;
+          return {
+            ...point,
+            temp: start + (this.state.amount * diff),
+          };
+        }),
+      )(data),
+    });
+  };
+
+  beginAnimating = (data) => {
+    const start = (new Date()).getTime();
+    const startingData = [ ...this.state.data ];
+    const animate = () => {
+      const now = (new Date()).getTime() - start;
+      if (now <= DURATION) {
+        const t = now / DURATION;
+        this.setState({
+          amount: ease(t),
+        });
+        this.parseData2(data, startingData);
+
+        window.requestAnimationFrame(animate);
+      };
+    }
+
+    window.requestAnimationFrame(animate);
+  }
+
+  handleToggle = type => value => {
+    const payload = {
+      ...this.state,
+      [type]: value,
+    };
+    this.setState(payload);
+    this.updateData(payload);
   }
 
   render() {
     const {
       duration,
-      data,
     } = this.props;
 
     const className = classNames(
@@ -113,29 +174,16 @@ class TemperatureDataScatter extends Component {
         <Toggle
           className={styles.data}
           options={dataOptions}
-          onChange={view => this.setState({
-            view,
-          })}
+          onChange={this.handleToggle("view")}
         />
         <Toggle
           className={styles.color}
           options={colorOptions}
-          onChange={color => this.setState({
-            color,
-          })}
+          onChange={this.handleToggle("color")}
         />
         <Chart
-          spec={
-            compose(
-              prepareSpec,
-              this.state.color === "hemispheres" ? data => data.map(point => ({
-                ...point,
-                label: point.isNorthern,
-              })) : null,
-              this.state.view === "diff" ? fromMean : null,
-              parseData,
-            )(data)
-          }
+          spec={spec}
+          data={{ source: this.state.data }}
           width={800}
           height={800}
         />

@@ -1,6 +1,9 @@
 {
   "$schema": "https://vega.github.io/schema/vega/v4.json",
   "padding": 5,
+  "width": 800,
+  "height": 400,
+  "data": [{ "name": "source" }],
 
   "scales": [
     {
@@ -16,10 +19,11 @@
     },
     {
       "name": "yscale",
-      "domain": {
-        "data": "source",
-        "field": "temp"
-      },
+      "domain": [
+        -30,
+        100
+      ],
+      "nice": true,
       "range": "height"
     },
     {

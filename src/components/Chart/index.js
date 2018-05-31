@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { createClassFromSpec } from 'react-vega';
-import getSpec from "./getSpec";
+// import getSpec from "./getSpec";
 
 class Chart extends Component {
-  render() {
-    const spec = getSpec(this.props);
+  constructor(props) {
+    super(props);
 
-    const Vega = createClassFromSpec('Chart', spec);
+    this.vega = createClassFromSpec('Chart', props.spec);
+  }
+
+  render() {
+    const Vega = this.vega;
 
     return (
-      <Vega />
+      <Vega data={this.props.data} />
     );
   }
 }
