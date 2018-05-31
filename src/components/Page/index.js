@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styles from "./styles.scss";
-import getPage, { pages } from '../pages';
+import getPage, { pages } from 'pages';
 
 class Page extends Component {
   constructor(props) {
@@ -34,20 +34,27 @@ class Page extends Component {
       ...props
     } = this.props;
 
-    return pages.map((Child, index) => (
-      <div
-        key={index}
-        className={styles.page}
-      >
-        <Child
-          index={index}
-          current={current}
-          visible={Math.abs(index - current) <= 1}
-          in={current === index}
-          {...props}
-        />
-      </div>
-    ));
+    return pages.map((Child, index) => {
+      const visible = Math.abs(index - current);
+
+      return (
+        <div
+          key={index}
+          className={styles.page}
+          style={{
+            zIndex: pages.length - visible,
+          }}
+        >
+          <Child
+            index={index}
+            current={current}
+            visible={visible <= 1}
+            in={current === index}
+            {...props}
+          />
+        </div>
+      );
+    });
   }
 }
 

@@ -1,0 +1,481 @@
+id,city,latitude,longitude,month,temperature
+0,Buenos Aires Argentina,-34.61315,-58.37723,0,77.2
+1,Buenos Aires Argentina,-34.61315,-58.37723,1,74.7
+2,Buenos Aires Argentina,-34.61315,-58.37723,2,70.5
+3,Buenos Aires Argentina,-34.61315,-58.37723,3,63.9
+4,Buenos Aires Argentina,-34.61315,-58.37723,4,57.7
+5,Buenos Aires Argentina,-34.61315,-58.37723,5,52.2
+6,Buenos Aires Argentina,-34.61315,-58.37723,6,51.6
+7,Buenos Aires Argentina,-34.61315,-58.37723,7,54.9
+8,Buenos Aires Argentina,-34.61315,-58.37723,8,57.6
+9,Buenos Aires Argentina,-34.61315,-58.37723,9,63.9
+10,Buenos Aires Argentina,-34.61315,-58.37723,10,69.1
+11,Buenos Aires Argentina,-34.61315,-58.37723,11,73.8
+12,São Paulo Brazil,-23.5475,-46.63611,0,74
+13,São Paulo Brazil,-23.5475,-46.63611,1,75
+14,São Paulo Brazil,-23.5475,-46.63611,2,74
+15,São Paulo Brazil,-23.5475,-46.63611,3,70
+16,São Paulo Brazil,-23.5475,-46.63611,4,66
+17,São Paulo Brazil,-23.5475,-46.63611,5,64
+18,São Paulo Brazil,-23.5475,-46.63611,6,63
+19,São Paulo Brazil,-23.5475,-46.63611,7,65
+20,São Paulo Brazil,-23.5475,-46.63611,8,65
+21,São Paulo Brazil,-23.5475,-46.63611,9,69
+22,São Paulo Brazil,-23.5475,-46.63611,10,71
+23,São Paulo Brazil,-23.5475,-46.63611,11,72
+24,Jakarta Indonesia,-6.21462,106.84513,0,80
+25,Jakarta Indonesia,-6.21462,106.84513,1,80
+26,Jakarta Indonesia,-6.21462,106.84513,2,81
+27,Jakarta Indonesia,-6.21462,106.84513,3,82
+28,Jakarta Indonesia,-6.21462,106.84513,4,82
+29,Jakarta Indonesia,-6.21462,106.84513,5,82
+30,Jakarta Indonesia,-6.21462,106.84513,6,81
+31,Jakarta Indonesia,-6.21462,106.84513,7,81
+32,Jakarta Indonesia,-6.21462,106.84513,8,82
+33,Jakarta Indonesia,-6.21462,106.84513,9,83
+34,Jakarta Indonesia,-6.21462,106.84513,10,82
+35,Jakarta Indonesia,-6.21462,106.84513,11,81
+36,Kinshasa Democratic Republic of the Congo,-4.32758,15.31357,0,80
+37,Kinshasa Democratic Republic of the Congo,-4.32758,15.31357,1,80
+38,Kinshasa Democratic Republic of the Congo,-4.32758,15.31357,2,81
+39,Kinshasa Democratic Republic of the Congo,-4.32758,15.31357,3,81
+40,Kinshasa Democratic Republic of the Congo,-4.32758,15.31357,4,80
+41,Kinshasa Democratic Republic of the Congo,-4.32758,15.31357,5,76
+42,Kinshasa Democratic Republic of the Congo,-4.32758,15.31357,6,74
+43,Kinshasa Democratic Republic of the Congo,-4.32758,15.31357,7,76
+44,Kinshasa Democratic Republic of the Congo,-4.32758,15.31357,8,79
+45,Kinshasa Democratic Republic of the Congo,-4.32758,15.31357,9,79
+46,Kinshasa Democratic Republic of the Congo,-4.32758,15.31357,10,79
+47,Kinshasa Democratic Republic of the Congo,-4.32758,15.31357,11,79
+48,Lima Peru,-12.04318,-77.02824,0,74
+49,Lima Peru,-12.04318,-77.02824,1,75
+50,Lima Peru,-12.04318,-77.02824,2,74
+51,Lima Peru,-12.04318,-77.02824,3,71
+52,Lima Peru,-12.04318,-77.02824,4,68
+53,Lima Peru,-12.04318,-77.02824,5,65
+54,Lima Peru,-12.04318,-77.02824,6,64
+55,Lima Peru,-12.04318,-77.02824,7,63
+56,Lima Peru,-12.04318,-77.02824,8,63
+57,Lima Peru,-12.04318,-77.02824,9,65
+58,Lima Peru,-12.04318,-77.02824,10,68
+59,Lima Peru,-12.04318,-77.02824,11,71
+60,Rio de Janeiro Brazil,-22.90642,-43.18223,0,81
+61,Rio de Janeiro Brazil,-22.90642,-43.18223,1,81.5
+62,Rio de Janeiro Brazil,-22.90642,-43.18223,2,79.9
+63,Rio de Janeiro Brazil,-22.90642,-43.18223,3,76.5
+64,Rio de Janeiro Brazil,-22.90642,-43.18223,4,72.7
+65,Rio de Janeiro Brazil,-22.90642,-43.18223,5,70.5
+66,Rio de Janeiro Brazil,-22.90642,-43.18223,6,69.8
+67,Rio de Janeiro Brazil,-22.90642,-43.18223,7,71.8
+68,Rio de Janeiro Brazil,-22.90642,-43.18223,8,73.4
+69,Rio de Janeiro Brazil,-22.90642,-43.18223,9,74.5
+70,Rio de Janeiro Brazil,-22.90642,-43.18223,10,76.1
+71,Rio de Janeiro Brazil,-22.90642,-43.18223,11,78.8
+72,Santiago Chile,-33.45694,-70.64827,0,70
+73,Santiago Chile,-33.45694,-70.64827,1,68
+74,Santiago Chile,-33.45694,-70.64827,2,65
+75,Santiago Chile,-33.45694,-70.64827,3,59
+76,Santiago Chile,-33.45694,-70.64827,4,53
+77,Santiago Chile,-33.45694,-70.64827,5,48
+78,Santiago Chile,-33.45694,-70.64827,6,47
+79,Santiago Chile,-33.45694,-70.64827,7,50
+80,Santiago Chile,-33.45694,-70.64827,8,53
+81,Santiago Chile,-33.45694,-70.64827,9,58
+82,Santiago Chile,-33.45694,-70.64827,10,63
+83,Santiago Chile,-33.45694,-70.64827,11,67
+84,Sydney Australia,-33.86785,151.20731999999995,0,72
+85,Sydney Australia,-33.86785,151.20731999999995,1,73
+86,Sydney Australia,-33.86785,151.20731999999995,2,70
+87,Sydney Australia,-33.86785,151.20731999999995,3,65
+88,Sydney Australia,-33.86785,151.20731999999995,4,60
+89,Sydney Australia,-33.86785,151.20731999999995,5,55
+90,Sydney Australia,-33.86785,151.20731999999995,6,53
+91,Sydney Australia,-33.86785,151.20731999999995,7,55
+92,Sydney Australia,-33.86785,151.20731999999995,8,59
+93,Sydney Australia,-33.86785,151.20731999999995,9,64
+94,Sydney Australia,-33.86785,151.20731999999995,10,67
+95,Sydney Australia,-33.86785,151.20731999999995,11,71
+96,Melbourne Australia,-37.814,144.96331999999995,0,68
+97,Melbourne Australia,-37.814,144.96331999999995,1,68
+98,Melbourne Australia,-37.814,144.96331999999995,2,65
+99,Melbourne Australia,-37.814,144.96331999999995,3,60
+100,Melbourne Australia,-37.814,144.96331999999995,4,55
+101,Melbourne Australia,-37.814,144.96331999999995,5,50
+102,Melbourne Australia,-37.814,144.96331999999995,6,48
+103,Melbourne Australia,-37.814,144.96331999999995,7,50
+104,Melbourne Australia,-37.814,144.96331999999995,8,53
+105,Melbourne Australia,-37.814,144.96331999999995,9,57
+106,Melbourne Australia,-37.814,144.96331999999995,10,61
+107,Melbourne Australia,-37.814,144.96331999999995,11,65
+108,Cape Town South Africa,-33.92584,18.42322,0,70
+109,Cape Town South Africa,-33.92584,18.42322,1,71
+110,Cape Town South Africa,-33.92584,18.42322,2,68
+111,Cape Town South Africa,-33.92584,18.42322,3,64
+112,Cape Town South Africa,-33.92584,18.42322,4,60
+113,Cape Town South Africa,-33.92584,18.42322,5,56
+114,Cape Town South Africa,-33.92584,18.42322,6,55
+115,Cape Town South Africa,-33.92584,18.42322,7,56
+116,Cape Town South Africa,-33.92584,18.42322,8,58
+117,Cape Town South Africa,-33.92584,18.42322,9,61
+118,Cape Town South Africa,-33.92584,18.42322,10,65
+119,Cape Town South Africa,-33.92584,18.42322,11,69
+120,Durban South Africa,-29.8579,31.0292,0,76
+121,Durban South Africa,-29.8579,31.0292,1,77
+122,Durban South Africa,-29.8579,31.0292,2,76
+123,Durban South Africa,-29.8579,31.0292,3,73
+124,Durban South Africa,-29.8579,31.0292,4,68
+125,Durban South Africa,-29.8579,31.0292,5,64
+126,Durban South Africa,-29.8579,31.0292,6,64
+127,Durban South Africa,-29.8579,31.0292,7,65
+128,Durban South Africa,-29.8579,31.0292,8,68
+129,Durban South Africa,-29.8579,31.0292,9,69
+130,Durban South Africa,-29.8579,31.0292,10,72
+131,Durban South Africa,-29.8579,31.0292,11,75
+132,Luanda Angola,-8.83682,13.23432,0,78
+133,Luanda Angola,-8.83682,13.23432,1,80
+134,Luanda Angola,-8.83682,13.23432,2,80
+135,Luanda Angola,-8.83682,13.23432,3,80
+136,Luanda Angola,-8.83682,13.23432,4,77
+137,Luanda Angola,-8.83682,13.23432,5,72
+138,Luanda Angola,-8.83682,13.23432,6,69
+139,Luanda Angola,-8.83682,13.23432,7,69
+140,Luanda Angola,-8.83682,13.23432,8,71
+141,Luanda Angola,-8.83682,13.23432,9,75
+142,Luanda Angola,-8.83682,13.23432,10,77
+143,Luanda Angola,-8.83682,13.23432,11,78
+144,Nairobi Kenya,-1.28333,36.81667,0,68
+145,Nairobi Kenya,-1.28333,36.81667,1,69
+146,Nairobi Kenya,-1.28333,36.81667,2,70
+147,Nairobi Kenya,-1.28333,36.81667,3,69
+148,Nairobi Kenya,-1.28333,36.81667,4,67
+149,Nairobi Kenya,-1.28333,36.81667,5,64
+150,Nairobi Kenya,-1.28333,36.81667,6,63
+151,Nairobi Kenya,-1.28333,36.81667,7,63
+152,Nairobi Kenya,-1.28333,36.81667,8,66
+153,Nairobi Kenya,-1.28333,36.81667,9,68
+154,Nairobi Kenya,-1.28333,36.81667,10,67
+155,Nairobi Kenya,-1.28333,36.81667,11,67
+156,Salvador Brazil,-12.97111,-38.51083,0,79.5
+157,Salvador Brazil,-12.97111,-38.51083,1,79.7
+158,Salvador Brazil,-12.97111,-38.51083,2,79.9
+159,Salvador Brazil,-12.97111,-38.51083,3,79.2
+160,Salvador Brazil,-12.97111,-38.51083,4,77.4
+161,Salvador Brazil,-12.97111,-38.51083,5,75.7
+162,Salvador Brazil,-12.97111,-38.51083,6,74.7
+163,Salvador Brazil,-12.97111,-38.51083,7,74.5
+164,Salvador Brazil,-12.97111,-38.51083,8,75.7
+165,Salvador Brazil,-12.97111,-38.51083,9,77.2
+166,Salvador Brazil,-12.97111,-38.51083,10,77.9
+167,Salvador Brazil,-12.97111,-38.51083,11,78.6
+168,Dar es Salaam Tanzania,-6.82349,39.26951,0,82
+169,Dar es Salaam Tanzania,-6.82349,39.26951,1,83
+170,Dar es Salaam Tanzania,-6.82349,39.26951,2,82
+171,Dar es Salaam Tanzania,-6.82349,39.26951,3,80
+172,Dar es Salaam Tanzania,-6.82349,39.26951,4,78
+173,Dar es Salaam Tanzania,-6.82349,39.26951,5,76
+174,Dar es Salaam Tanzania,-6.82349,39.26951,6,75
+175,Dar es Salaam Tanzania,-6.82349,39.26951,7,75
+176,Dar es Salaam Tanzania,-6.82349,39.26951,8,76
+177,Dar es Salaam Tanzania,-6.82349,39.26951,9,78
+178,Dar es Salaam Tanzania,-6.82349,39.26951,10,80
+179,Dar es Salaam Tanzania,-6.82349,39.26951,11,82
+180,Fortaleza Brazil,-3.71722,-38.54306,0,80.8
+181,Fortaleza Brazil,-3.71722,-38.54306,1,80.3
+182,Fortaleza Brazil,-3.71722,-38.54306,2,79.6
+183,Fortaleza Brazil,-3.71722,-38.54306,3,79.2
+184,Fortaleza Brazil,-3.71722,-38.54306,4,79.1
+185,Fortaleza Brazil,-3.71722,-38.54306,5,78.5
+186,Fortaleza Brazil,-3.71722,-38.54306,6,78.1
+187,Fortaleza Brazil,-3.71722,-38.54306,7,78.8
+188,Fortaleza Brazil,-3.71722,-38.54306,8,79.6
+189,Fortaleza Brazil,-3.71722,-38.54306,9,80.5
+190,Fortaleza Brazil,-3.71722,-38.54306,10,81
+191,Fortaleza Brazil,-3.71722,-38.54306,11,81.1
+192,Surabaya Indonesia,-7.249169999999999,112.75083,0,82
+193,Surabaya Indonesia,-7.249169999999999,112.75083,1,82
+194,Surabaya Indonesia,-7.249169999999999,112.75083,2,82
+195,Surabaya Indonesia,-7.249169999999999,112.75083,3,84
+196,Surabaya Indonesia,-7.249169999999999,112.75083,4,84
+197,Surabaya Indonesia,-7.249169999999999,112.75083,5,83
+198,Surabaya Indonesia,-7.249169999999999,112.75083,6,82
+199,Surabaya Indonesia,-7.249169999999999,112.75083,7,82
+200,Surabaya Indonesia,-7.249169999999999,112.75083,8,84
+201,Surabaya Indonesia,-7.249169999999999,112.75083,9,85
+202,Surabaya Indonesia,-7.249169999999999,112.75083,10,85
+203,Surabaya Indonesia,-7.249169999999999,112.75083,11,83
+204,Belo Horizonte Brazil,-19.92083,-43.93778,0,73
+205,Belo Horizonte Brazil,-19.92083,-43.93778,1,73.4
+206,Belo Horizonte Brazil,-19.92083,-43.93778,2,73.2
+207,Belo Horizonte Brazil,-19.92083,-43.93778,3,71.1
+208,Belo Horizonte Brazil,-19.92083,-43.93778,4,67.3
+209,Belo Horizonte Brazil,-19.92083,-43.93778,5,65.3
+210,Belo Horizonte Brazil,-19.92083,-43.93778,6,64.4
+211,Belo Horizonte Brazil,-19.92083,-43.93778,7,67.5
+212,Belo Horizonte Brazil,-19.92083,-43.93778,8,70
+213,Belo Horizonte Brazil,-19.92083,-43.93778,9,71.1
+214,Belo Horizonte Brazil,-19.92083,-43.93778,10,72
+215,Belo Horizonte Brazil,-19.92083,-43.93778,11,72
+216,Brasília Brazil,-15.77972,-47.92972,0,70.2
+217,Brasília Brazil,-15.77972,-47.92972,1,70.3
+218,Brasília Brazil,-15.77972,-47.92972,2,70.7
+219,Brasília Brazil,-15.77972,-47.92972,3,69.6
+220,Brasília Brazil,-15.77972,-47.92972,4,67.3
+221,Brasília Brazil,-15.77972,-47.92972,5,65.3
+222,Brasília Brazil,-15.77972,-47.92972,6,64.9
+223,Brasília Brazil,-15.77972,-47.92972,7,68.5
+224,Brasília Brazil,-15.77972,-47.92972,8,71.1
+225,Brasília Brazil,-15.77972,-47.92972,9,70.9
+226,Brasília Brazil,-15.77972,-47.92972,10,70
+227,Brasília Brazil,-15.77972,-47.92972,11,69.8
+228,Brisbane Australia,-27.46794,153.02809,0,77
+229,Brisbane Australia,-27.46794,153.02809,1,77
+230,Brisbane Australia,-27.46794,153.02809,2,75
+231,Brisbane Australia,-27.46794,153.02809,3,71
+232,Brisbane Australia,-27.46794,153.02809,4,66
+233,Brisbane Australia,-27.46794,153.02809,5,61
+234,Brisbane Australia,-27.46794,153.02809,6,59
+235,Brisbane Australia,-27.46794,153.02809,7,61
+236,Brisbane Australia,-27.46794,153.02809,8,65
+237,Brisbane Australia,-27.46794,153.02809,9,70
+238,Brisbane Australia,-27.46794,153.02809,10,73
+239,Brisbane Australia,-27.46794,153.02809,11,76
+240,Shanghai China,31.22222,121.45806,0,40
+241,Shanghai China,31.22222,121.45806,1,42
+242,Shanghai China,31.22222,121.45806,2,48
+243,Shanghai China,31.22222,121.45806,3,59
+244,Shanghai China,31.22222,121.45806,4,68
+245,Shanghai China,31.22222,121.45806,5,75
+246,Shanghai China,31.22222,121.45806,6,83
+247,Shanghai China,31.22222,121.45806,7,82
+248,Shanghai China,31.22222,121.45806,8,75
+249,Shanghai China,31.22222,121.45806,9,66
+250,Shanghai China,31.22222,121.45806,10,55
+251,Shanghai China,31.22222,121.45806,11,44
+252,Istanbul Turkey,41.01384,28.94966,0,42
+253,Istanbul Turkey,41.01384,28.94966,1,42
+254,Istanbul Turkey,41.01384,28.94966,2,46
+255,Istanbul Turkey,41.01384,28.94966,3,54
+256,Istanbul Turkey,41.01384,28.94966,4,62
+257,Istanbul Turkey,41.01384,28.94966,5,70
+258,Istanbul Turkey,41.01384,28.94966,6,74
+259,Istanbul Turkey,41.01384,28.94966,7,74
+260,Istanbul Turkey,41.01384,28.94966,8,69
+261,Istanbul Turkey,41.01384,28.94966,9,61
+262,Istanbul Turkey,41.01384,28.94966,10,52
+263,Istanbul Turkey,41.01384,28.94966,11,46
+264,Mumbai India,19.07283,72.88261,0,74.7
+265,Mumbai India,19.07283,72.88261,1,76.1
+266,Mumbai India,19.07283,72.88261,2,80.2
+267,Mumbai India,19.07283,72.88261,3,83.1
+268,Mumbai India,19.07283,72.88261,4,85.8
+269,Mumbai India,19.07283,72.88261,5,84.6
+270,Mumbai India,19.07283,72.88261,6,81.7
+271,Mumbai India,19.07283,72.88261,7,81
+272,Mumbai India,19.07283,72.88261,8,81.1
+273,Mumbai India,19.07283,72.88261,9,82.9
+274,Mumbai India,19.07283,72.88261,10,81
+275,Mumbai India,19.07283,72.88261,11,77.4
+276,Mexico City Mexico,19.42847,-99.12766,0,57
+277,Mexico City Mexico,19.42847,-99.12766,1,59
+278,Mexico City Mexico,19.42847,-99.12766,2,63
+279,Mexico City Mexico,19.42847,-99.12766,3,66
+280,Mexico City Mexico,19.42847,-99.12766,4,67
+281,Mexico City Mexico,19.42847,-99.12766,5,67
+282,Mexico City Mexico,19.42847,-99.12766,6,65
+283,Mexico City Mexico,19.42847,-99.12766,7,65
+284,Mexico City Mexico,19.42847,-99.12766,8,64
+285,Mexico City Mexico,19.42847,-99.12766,9,63
+286,Mexico City Mexico,19.42847,-99.12766,10,60
+287,Mexico City Mexico,19.42847,-99.12766,11,58
+288,Beijing China,39.9075,116.39723,0,26
+289,Beijing China,39.9075,116.39723,1,31
+290,Beijing China,39.9075,116.39723,2,43
+291,Beijing China,39.9075,116.39723,3,57
+292,Beijing China,39.9075,116.39723,4,68
+293,Beijing China,39.9075,116.39723,5,76
+294,Beijing China,39.9075,116.39723,6,79
+295,Beijing China,39.9075,116.39723,7,77
+296,Beijing China,39.9075,116.39723,8,69
+297,Beijing China,39.9075,116.39723,9,57
+298,Beijing China,39.9075,116.39723,10,41
+299,Beijing China,39.9075,116.39723,11,30
+300,Karachi Pakistan,24.8608,67.0104,0,66
+301,Karachi Pakistan,24.8608,67.0104,1,70
+302,Karachi Pakistan,24.8608,67.0104,2,77
+303,Karachi Pakistan,24.8608,67.0104,3,84
+304,Karachi Pakistan,24.8608,67.0104,4,87
+305,Karachi Pakistan,24.8608,67.0104,5,89
+306,Karachi Pakistan,24.8608,67.0104,6,86
+307,Karachi Pakistan,24.8608,67.0104,7,84
+308,Karachi Pakistan,24.8608,67.0104,8,85
+309,Karachi Pakistan,24.8608,67.0104,9,83
+310,Karachi Pakistan,24.8608,67.0104,10,76
+311,Karachi Pakistan,24.8608,67.0104,11,68
+312,Tianjin China,39.14222,117.17667,0,27
+313,Tianjin China,39.14222,117.17667,1,32
+314,Tianjin China,39.14222,117.17667,2,44
+315,Tianjin China,39.14222,117.17667,3,58
+316,Tianjin China,39.14222,117.17667,4,69
+317,Tianjin China,39.14222,117.17667,5,77
+318,Tianjin China,39.14222,117.17667,6,80
+319,Tianjin China,39.14222,117.17667,7,79
+320,Tianjin China,39.14222,117.17667,8,71
+321,Tianjin China,39.14222,117.17667,9,59
+322,Tianjin China,39.14222,117.17667,10,43
+323,Tianjin China,39.14222,117.17667,11,31
+324,Guangzhou China,23.116670000000006,113.25,0,58
+325,Guangzhou China,23.116670000000006,113.25,1,59
+326,Guangzhou China,23.116670000000006,113.25,2,65
+327,Guangzhou China,23.116670000000006,113.25,3,72
+328,Guangzhou China,23.116670000000006,113.25,4,79
+329,Guangzhou China,23.116670000000006,113.25,5,82
+330,Guangzhou China,23.116670000000006,113.25,6,84
+331,Guangzhou China,23.116670000000006,113.25,7,84
+332,Guangzhou China,23.116670000000006,113.25,8,82
+333,Guangzhou China,23.116670000000006,113.25,9,76
+334,Guangzhou China,23.116670000000006,113.25,10,68
+335,Guangzhou China,23.116670000000006,113.25,11,60
+336,Delhi India,28.65195,77.23149000000002,0,57.7
+337,Delhi India,28.65195,77.23149000000002,1,62.6
+338,Delhi India,28.65195,77.23149000000002,2,72.5
+339,Delhi India,28.65195,77.23149000000002,3,83.8
+340,Delhi India,28.65195,77.23149000000002,4,91.4
+341,Delhi India,28.65195,77.23149000000002,5,93
+342,Delhi India,28.65195,77.23149000000002,6,88
+343,Delhi India,28.65195,77.23149000000002,7,85.8
+344,Delhi India,28.65195,77.23149000000002,8,84.9
+345,Delhi India,28.65195,77.23149000000002,9,79.2
+346,Delhi India,28.65195,77.23149000000002,10,68.7
+347,Delhi India,28.65195,77.23149000000002,11,60.1
+348,Moscow Russia,55.75222,37.61556,0,16
+349,Moscow Russia,55.75222,37.61556,1,18
+350,Moscow Russia,55.75222,37.61556,2,28
+351,Moscow Russia,55.75222,37.61556,3,42
+352,Moscow Russia,55.75222,37.61556,4,54
+353,Moscow Russia,55.75222,37.61556,5,60
+354,Moscow Russia,55.75222,37.61556,6,63
+355,Moscow Russia,55.75222,37.61556,7,60
+356,Moscow Russia,55.75222,37.61556,8,50
+357,Moscow Russia,55.75222,37.61556,9,39
+358,Moscow Russia,55.75222,37.61556,10,28
+359,Moscow Russia,55.75222,37.61556,11,21
+360,Shenzhen China,22.54554,114.0683,0,57
+361,Shenzhen China,22.54554,114.0683,1,59
+362,Shenzhen China,22.54554,114.0683,2,64
+363,Shenzhen China,22.54554,114.0683,3,71
+364,Shenzhen China,22.54554,114.0683,4,77
+365,Shenzhen China,22.54554,114.0683,5,80
+366,Shenzhen China,22.54554,114.0683,6,82
+367,Shenzhen China,22.54554,114.0683,7,82
+368,Shenzhen China,22.54554,114.0683,8,80
+369,Shenzhen China,22.54554,114.0683,9,75
+370,Shenzhen China,22.54554,114.0683,10,68
+371,Shenzhen China,22.54554,114.0683,11,60
+372,Dhaka Bangladesh,23.7104,90.40744,0,66.3
+373,Dhaka Bangladesh,23.7104,90.40744,1,71.2
+374,Dhaka Bangladesh,23.7104,90.40744,2,79.6
+375,Dhaka Bangladesh,23.7104,90.40744,3,83.6
+376,Dhaka Bangladesh,23.7104,90.40744,4,83.7
+377,Dhaka Bangladesh,23.7104,90.40744,5,84.4
+378,Dhaka Bangladesh,23.7104,90.40744,6,83.8
+379,Dhaka Bangladesh,23.7104,90.40744,7,84.1
+380,Dhaka Bangladesh,23.7104,90.40744,8,83.8
+381,Dhaka Bangladesh,23.7104,90.40744,9,81.9
+382,Dhaka Bangladesh,23.7104,90.40744,10,75.9
+383,Dhaka Bangladesh,23.7104,90.40744,11,68.5
+384,Seoul South Korea,37.566,126.9784,0,28
+385,Seoul South Korea,37.566,126.9784,1,32
+386,Seoul South Korea,37.566,126.9784,2,42
+387,Seoul South Korea,37.566,126.9784,3,54
+388,Seoul South Korea,37.566,126.9784,4,64
+389,Seoul South Korea,37.566,126.9784,5,72
+390,Seoul South Korea,37.566,126.9784,6,77
+391,Seoul South Korea,37.566,126.9784,7,78
+392,Seoul South Korea,37.566,126.9784,8,70
+393,Seoul South Korea,37.566,126.9784,9,59
+394,Seoul South Korea,37.566,126.9784,10,45
+395,Seoul South Korea,37.566,126.9784,11,33
+396,Wuhan China,30.58333,114.26667,0,39
+397,Wuhan China,30.58333,114.26667,1,42
+398,Wuhan China,30.58333,114.26667,2,51
+399,Wuhan China,30.58333,114.26667,3,63
+400,Wuhan China,30.58333,114.26667,4,72
+401,Wuhan China,30.58333,114.26667,5,78
+402,Wuhan China,30.58333,114.26667,6,84
+403,Wuhan China,30.58333,114.26667,7,84
+404,Wuhan China,30.58333,114.26667,8,75
+405,Wuhan China,30.58333,114.26667,9,65
+406,Wuhan China,30.58333,114.26667,10,54
+407,Wuhan China,30.58333,114.26667,11,43
+408,Lagos Nigeria,6.45407,3.39467,0,81
+409,Lagos Nigeria,6.45407,3.39467,1,84
+410,Lagos Nigeria,6.45407,3.39467,2,84
+411,Lagos Nigeria,6.45407,3.39467,3,83
+412,Lagos Nigeria,6.45407,3.39467,4,81
+413,Lagos Nigeria,6.45407,3.39467,5,79
+414,Lagos Nigeria,6.45407,3.39467,6,78
+415,Lagos Nigeria,6.45407,3.39467,7,77
+416,Lagos Nigeria,6.45407,3.39467,8,77
+417,Lagos Nigeria,6.45407,3.39467,9,79
+418,Lagos Nigeria,6.45407,3.39467,10,81
+419,Lagos Nigeria,6.45407,3.39467,11,81
+420,Tokyo Japan,35.6895,139.69171,0,43
+421,Tokyo Japan,35.6895,139.69171,1,43.7
+422,Tokyo Japan,35.6895,139.69171,2,48.9
+423,Tokyo Japan,35.6895,139.69171,3,58.3
+424,Tokyo Japan,35.6895,139.69171,4,66
+425,Tokyo Japan,35.6895,139.69171,5,71.8
+426,Tokyo Japan,35.6895,139.69171,6,78.4
+427,Tokyo Japan,35.6895,139.69171,7,81.3
+428,Tokyo Japan,35.6895,139.69171,8,74.8
+429,Tokyo Japan,35.6895,139.69171,9,65.3
+430,Tokyo Japan,35.6895,139.69171,10,55.9
+431,Tokyo Japan,35.6895,139.69171,11,47.7
+432,New York City United States,40.71427,-74.00596999999998,0,32.9
+433,New York City United States,40.71427,-74.00596999999998,1,35.3
+434,New York City United States,40.71427,-74.00596999999998,2,42.2
+435,New York City United States,40.71427,-74.00596999999998,3,52.7
+436,New York City United States,40.71427,-74.00596999999998,4,62.5
+437,New York City United States,40.71427,-74.00596999999998,5,72.2
+438,New York City United States,40.71427,-74.00596999999998,6,77.4
+439,New York City United States,40.71427,-74.00596999999998,7,76.3
+440,New York City United States,40.71427,-74.00596999999998,8,69.1
+441,New York City United States,40.71427,-74.00596999999998,9,58.1
+442,New York City United States,40.71427,-74.00596999999998,10,48.3
+443,New York City United States,40.71427,-74.00596999999998,11,38.2
+444,Dongguan China,23.01797,113.74866000000002,0,57.6
+445,Dongguan China,23.01797,113.74866000000002,1,58.8
+446,Dongguan China,23.01797,113.74866000000002,2,64.9
+447,Dongguan China,23.01797,113.74866000000002,3,72.3
+448,Dongguan China,23.01797,113.74866000000002,4,79
+449,Dongguan China,23.01797,113.74866000000002,5,82
+450,Dongguan China,23.01797,113.74866000000002,6,84
+451,Dongguan China,23.01797,113.74866000000002,7,83.7
+452,Dongguan China,23.01797,113.74866000000002,8,81.5
+453,Dongguan China,23.01797,113.74866000000002,9,76.1
+454,Dongguan China,23.01797,113.74866000000002,10,68
+455,Dongguan China,23.01797,113.74866000000002,11,60.4
+456,Taipei Taiwan,25.04776,121.53185,0,61
+457,Taipei Taiwan,25.04776,121.53185,1,61
+458,Taipei Taiwan,25.04776,121.53185,2,65
+459,Taipei Taiwan,25.04776,121.53185,3,71
+460,Taipei Taiwan,25.04776,121.53185,4,77
+461,Taipei Taiwan,25.04776,121.53185,5,82
+462,Taipei Taiwan,25.04776,121.53185,6,85
+463,Taipei Taiwan,25.04776,121.53185,7,85
+464,Taipei Taiwan,25.04776,121.53185,8,81
+465,Taipei Taiwan,25.04776,121.53185,9,76
+466,Taipei Taiwan,25.04776,121.53185,10,69
+467,Taipei Taiwan,25.04776,121.53185,11,63
+468,Cairo Egypt,30.06263,31.24967,0,57
+469,Cairo Egypt,30.06263,31.24967,1,59
+470,Cairo Egypt,30.06263,31.24967,2,64
+471,Cairo Egypt,30.06263,31.24967,3,71
+472,Cairo Egypt,30.06263,31.24967,4,77
+473,Cairo Egypt,30.06263,31.24967,5,82
+474,Cairo Egypt,30.06263,31.24967,6,83
+475,Cairo Egypt,30.06263,31.24967,7,82
+476,Cairo Egypt,30.06263,31.24967,8,80
+477,Cairo Egypt,30.06263,31.24967,9,75
+478,Cairo Egypt,30.06263,31.24967,10,67
+479,Cairo Egypt,30.06263,31.24967,11,60

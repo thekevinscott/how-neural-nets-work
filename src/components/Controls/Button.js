@@ -4,6 +4,8 @@ import arrowLeft from '@fortawesome/fontawesome-free-solid/faArrowCircleLeft';
 import arrowRight from '@fortawesome/fontawesome-free-solid/faArrowCircleRight';
 import styles from "./styles.scss";
 
+const SIZE = "2x";
+
 const getIcon = direction => {
   if (direction === "left") {
     return arrowLeft;
@@ -23,7 +25,7 @@ const Button = ({
   >
     <FontAwesomeIcon
       icon={getIcon(direction)}
-      size="3x"
+      size={SIZE}
     />
   </a>
 );

@@ -41,10 +41,13 @@
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.0",
     "react-transition-group": "^2.3.1",
+    "react-vega": "^3.1.2",
     "resolve": "1.6.0",
     "style-loader": "0.19.0",
     "sw-precache-webpack-plugin": "0.11.4",
     "url-loader": "0.6.2",
+    "vega": "^4.0.0-rc.2",
+    "vega-embed": "^3.14.0",
     "webpack": "3.8.1",
     "webpack-dev-server": "2.9.4",
     "webpack-manifest-plugin": "1.3.2",
@@ -57,8 +60,10 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
+    "csv-loader": "^2.1.1",
     "gh-pages": "^1.1.0",
     "node-sass": "^4.9.0",
+    "raw-loader": "^0.5.1",
     "sass-loader": "^7.0.1"
   },
   "jest": {

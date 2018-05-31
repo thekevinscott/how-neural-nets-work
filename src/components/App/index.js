@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 import styles from "./styles.scss";
-import Controls from '../Controls';
-import Page from '../Page';
+import Controls from 'components/Controls';
+import Page from 'components/Page';
+import csv from 'data/temperatures';
+
 import {
   get,
   save,
-} from '../utils/user';
+} from 'utils/user';
+
 import {
   pages,
-} from '../pages';
+} from 'pages';
 
 const DURATION = 1000;
 
@@ -18,6 +21,7 @@ class App extends Component {
 
     this.state = {
       current: get().current || 0,
+      data: csv,
     };
   }
 
@@ -50,6 +54,7 @@ class App extends Component {
         <Page
           current={this.state.current}
           duration={DURATION}
+          data={this.state.data}
         />
         <Controls
           total={pages.length}

@@ -1,6 +1,7 @@
 .scatter {
+  padding: 20px;
+  box-sizing: border-box;
   left: 0%;
-  top: 60px;
   position: absolute;
   transition-timing-function: ease-in-out;
   transition-duration: 100ms;
@@ -28,4 +29,8 @@
   &.exitedAfter {
     left: 20%;
   }
+}
+
+.color {
+  margin-top: 100px;
 }
