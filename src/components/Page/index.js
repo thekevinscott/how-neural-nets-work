@@ -1,23 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styles from "./styles.scss";
-import getPage, { pages } from 'pages';
+import { pages } from 'pages';
 
-class Page extends Component {
+class Page extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       previous: null,
-      status: null,
     };
-  }
-
-  componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        status: "entering",
-      });
-    });
   }
 
   componentWillReceiveProps({ current }) {
@@ -34,7 +25,7 @@ class Page extends Component {
       ...props
     } = this.props;
 
-    return pages.map((Child, index) => {
+    return pages.map(({ Component }, index) => {
       const visible = Math.abs(index - current);
 
       return (
@@ -45,7 +36,7 @@ class Page extends Component {
             zIndex: pages.length - visible,
           }}
         >
-          <Child
+          <Component
             index={index}
             current={current}
             visible={visible <= 1}

@@ -1,7 +1,41 @@
+$size: 30px;
+
+.container {
+  display: flex;
+}
+
 .toggle {
-  position: absolute;
-  padding: 20px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
-  border-radius: 5px;
-  margin-left: 800px;
+  width: $size;
+  height: $size * 2;
+  border-radius: $size;
+  border: 1px solid rgba(0,0,0,0.15);
+  background: rgba(0,0,0,0.075);
+  margin-bottom: 20px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+
+.switch {
+  transition-duration: 0.3s;
+  margin-top: 0;
+  width: $size - 2;
+  height: $size - 2;
+  border-radius: $size;
+  border: 1px solid rgba(0,0,0,0.25);
+  background: white;
+}
+
+.on {
+  .switch {
+    margin-top: $size;
+  }
+}
+
+.labels {
+  label {
+    display: flex;
+    align-items: center;
+    height: $size;
+    font-size: 1.4rem;
+  }
 }

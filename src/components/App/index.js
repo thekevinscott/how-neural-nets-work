@@ -15,26 +15,56 @@ import {
 
 const DURATION = 1000;
 
+const getPath = () => window.location.pathname.split('/').filter(p => p).shift();
+const getPageIndex = path => {
+  if (!path) {
+    return 0;
+  }
+
+  return pages.reduce((found, page, index) => {
+    if (found !== null) {
+      return found;
+    }
+    console.log(page, index);
+
+    if (page.url === path) {
+      return index;
+    }
+
+    return null;
+  }, null);
+};
+
+const parseData = (data, scale) => data.map(point => ({
+  ...point,
+  temperature: scale === "f" ? point.temperature : convertToCelsius(point.temperature),
+}));
+
+const convertToCelsius = temp => (temp - 32) * 5 / 9;
+
 class App extends Component {
   constructor(props) {
     super(props);
 
+    const path = getPath();
+
     this.state = {
-      current: get().current || 0,
+      scale: get().scale || "f",
+      current: getPageIndex(path),
       data: csv,
     };
   }
 
-  set = payload => {
+  changePage = ({ current }) => {
     this.setState({
-      ...payload,
+      current,
     });
-    save(payload);
+    window.history.pushState(null, null, pages[current].url);
   }
 
   handlePrev = () => {
     if (this.state.current > 0) {
-      this.set({
+      this.changePage({
         current: this.state.current - 1,
       });
     }
@@ -42,10 +72,19 @@ class App extends Component {
 
   handleNext = () => {
     if (this.state.current < pages.length - 1 ) {
-      this.set({
+      this.changePage({
         current: this.state.current + 1,
       });
     }
+  }
+
+  handleScaleToggle = (scale) => {
+    this.setState({
+      scale,
+    });
+    save({
+      scale,
+    });
   }
 
   render() {
@@ -54,7 +93,9 @@ class App extends Component {
         <Page
           current={this.state.current}
           duration={DURATION}
-          data={this.state.data}
+          data={parseData(this.state.data, this.state.scale)}
+          scale={this.state.scale}
+          handleScaleToggle={this.handleScaleToggle}
         />
         <Controls
           total={pages.length}

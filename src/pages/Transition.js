@@ -8,12 +8,12 @@ const getClassNames = (state, isBefore) => ({
   [`${state}`]: true,
 });
 
-export default () => Child => {
+export default (args = {}) => Child => {
   return class Wrapper extends Component {
     render() {
       const {
         visible,
-        classname,
+        className,
         current,
         index,
       } = this.props;
@@ -31,11 +31,37 @@ export default () => Child => {
 
             const isBefore = current > index ? true : false;
 
+            if (args.styles) {
+              const _className = classNames(
+                args.className,
+                ...classNames(
+                  className || "",
+                  getClassNames(state, isBefore)
+                ).split(" ").map(name => {
+                  return args.styles[name];
+                }),
+              );
+              return (
+                <div
+                  className={_className}
+                  style={{
+                    transitionDuration: `${this.props.duration}ms`,
+                  }}
+                >
+                  <Child
+                    {...this.props}
+                    state={state}
+                    isBefore={isBefore}
+                  />
+                </div>
+              );
+            }
+
             return (
               <Child
                 {...this.props}
                 className={classNames(
-                  classname || "",
+                  className || "",
                   getClassNames(state, isBefore)
                 )}
                 state={state}

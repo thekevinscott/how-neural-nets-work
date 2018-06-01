@@ -1,7 +1,6 @@
-.scatter {
-  padding: 20px;
-  box-sizing: border-box;
+.nnintro {
   left: 0%;
+  top: 160px;
   position: absolute;
   transition-timing-function: ease-in-out;
   transition-duration: 100ms;
@@ -31,11 +30,6 @@
   }
 }
 
-.toggler {
-  position: absolute;
-  margin-left: 800px;
-
-  &.color {
-    margin-top: 100px;
-  }
+.canvas {
+  border: 1px solid rgba(0,0,0,0.4);
 }

@@ -18,7 +18,8 @@ class TheWorld extends Component {
           transitionDuration: `${this.props.duration}ms`,
         }}
       >
-        I am the world!
+        <h2>Here's the points on a globe.</h2>
+        <h2>You can see the pattern of north to south</h2>
       </div>
     );
   }

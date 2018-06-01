@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { createClassFromSpec } from 'react-vega';
+// import styles from "./styles.scss";
 // import getSpec from "./getSpec";
 
 class Chart extends Component {
@@ -13,7 +14,9 @@ class Chart extends Component {
     const Vega = this.vega;
 
     return (
-      <Vega data={this.props.data} />
+      <Vega
+        data={this.props.data}
+      />
     );
   }
 }

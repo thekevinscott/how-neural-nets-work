@@ -1,7 +1,7 @@
-.scatter {
-  padding: 20px;
-  box-sizing: border-box;
+.datum {
   left: 0%;
+  top: 160px;
+  width: 100%;
   position: absolute;
   transition-timing-function: ease-in-out;
   transition-duration: 100ms;
@@ -31,11 +31,31 @@
   }
 }
 
-.toggler {
-  position: absolute;
-  margin-left: 800px;
+.container {
+  box-sizing: border-box;
+  padding: 20px;
+  width: 100%;
+}
 
-  &.color {
-    margin-top: 100px;
-  }
+.pointContainer {
+  float: left;
+  margin-right: 20px;
+  height: 300px;
+}
+
+.textContainer {
+  float: left;
+}
+
+.point {
+  $size: 50px;
+  border: 2px solid rgba(0,0,0,0.4);
+  border-radius: $size;
+  height: $size;
+  width: $size;
+}
+
+.person {
+  float: right;
+  margin-left: 20px;
 }

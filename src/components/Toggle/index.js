@@ -4,37 +4,39 @@ import PropTypes from 'prop-types';
 import styles from './styles.scss';
 
 class Toggle extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      on: props.value || false,
+    };
+  }
+
   handleChange = (e) => {
-    this.props.onChange(e.target.value);
+    const on = !this.state.on;
+    this.setState({
+      on,
+    });
+    const value = this.props.options[on ? 1 : 0].value;
+    this.props.onChange(value);
   }
 
   render() {
-    const {
-      options,
-      className,
-    } = this.props;
-
     return (
-      <div
-        className={classNames(styles.toggle, className)}
-      >
-        <select
-          onChange={this.handleChange}
+      <div className={styles.container}>
+        <div
+          className={classNames(styles.toggle, {
+            [styles.on]: this.state.on,
+          })}
+          onClick={this.handleChange}
         >
-          {options.map(({
-            value,
-            label,
-            selected,
-          }) => (
-            <option
-              key={value}
-              value={value}
-              selected={selected}
-            >
-              {label}
-            </option>
+          <div className={styles.switch} />
+        </div>
+        <div className={styles.labels}>
+          {this.props.options.map(option => (
+            <label key={option.value}>{option.label}</label>
           ))}
-        </select>
+        </div>
       </div>
     );
   }
@@ -46,11 +48,6 @@ Toggle.propTypes = {
     value: PropTypes.string.isRequired,
   })).isRequired,
   onChange: PropTypes.func.isRequired,
-  className: PropTypes.string,
-};
-
-Toggle.defaultProps = {
-  className: "",
 };
 
 export default Toggle;
