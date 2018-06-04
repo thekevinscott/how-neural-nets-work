@@ -1,7 +1,10 @@
 .nnintro {
   left: 0%;
-  top: 160px;
   position: absolute;
+  height: 100%;
+  padding-bottom: 100px;
+  box-sizing: border-box;
+  display: flex;
   transition-timing-function: ease-in-out;
   transition-duration: 100ms;
   opacity: 0;
@@ -30,6 +33,15 @@
   }
 }
 
+.container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
 .canvas {
+  overflow: hidden;
   border: 1px solid rgba(0,0,0,0.4);
+  flex: 1;
+  margin-top: 20px;
 }

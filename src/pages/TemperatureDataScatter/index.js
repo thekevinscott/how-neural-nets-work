@@ -4,11 +4,13 @@ import Transition from '../Transition';
 import styles from './styles.scss';
 import Chart from "components/Chart";
 import Toggle from "components/Toggle";
+import TextBox from "components/TextBox";
 import spec from "./spec.json";
 import ease from 'eases/circ-out';
 
-const Toggler = ({ className, children }) => (
+const Toggler = ({ label, className, children }) => (
   <div className={classNames(className, styles.toggler)}>
+    <label>{label}</label>
     {children}
   </div>
 );
@@ -22,11 +24,13 @@ const compose = (...fns) =>
 const parseData = data => data.map(({
   city,
   month,
+  shortMonth,
   latitude,
   temperature: temp,
 }) => ({
   city,
   month,
+  shortMonth,
   isNorthern: latitude > 0,
   temp,
   tooltip: `${city} is ${temp} degrees on average in ${month}`,
@@ -36,45 +40,40 @@ const parseData = data => data.map(({
 }));
 
 const fromMean = data => {
-  const cities = data.reduce((obj, d) => ({
-    ...obj,
-    [d.city]: (obj[d.city] || 0) + (d.temp / 12),
-  }), {});
+  const cities = data.reduce((obj, d) => {
+    const objCity = obj[d.city] || {};
+    return {
+      ...obj,
+      [d.city]: {
+        min: objCity.min === undefined || d.temp < objCity.min ? d.temp : objCity.min,
+        max: objCity.max === undefined || d.temp > objCity.max ? d.temp : objCity.max,
+        mean: (objCity.mean || 0) + (d.temp / 12),
+      },
+    };
+  }, {});
 
+  console.log(cities);
   return data.map(d => ({
     ...d,
-    temp: d.temp - cities[d.city],
+    // temp: (d.temp - cities[d.city].mean,
+    temp: (d.temp - cities[d.city].min) / (cities[d.city].max - cities[d.city].min) * 80,
   }));
 };
 
-    // {
-    //   "type": "line",
-    //   "from": {"data": "source"},
-    //   "encode": {
-    //     "update": {
-    //       "interpolate": {"value": "cardinal"},
-    //       "x": {"scale": "xscale", "field": "month"},
-    //       "y": {"scale": "yscale", "field": "temp"},
-    //       "stroke": {"value": "#4682b4"},
-    //       "strokeWidth": {"value": 3}
-    //     }
-    //   }
-    // },
-
 const dataOptions = [{
   value: "default",
-  label: "Average temperature by month",
+  label: "Temperature",
 }, {
   value: "diff",
-  label: "Average temperature diff'd",
+  label: "Difference",
 }];
 
 const colorOptions = [{
   value: "city",
-  label: "Show colors by city",
+  label: "By City",
 }, {
   value: "hemispheres",
-  label: "Show colors by hemisphere",
+  label: "By Hemisphere",
 }];
 
 const DURATION = 1000;
@@ -183,26 +182,34 @@ class TemperatureDataScatter extends Component {
           transitionDuration: `${duration}ms`,
         }}
       >
-        <h2>These are average temperatures for the top 20 most populous cities in the northern hemisphere, and the top 20 in the southern hemisphere.</h2>
-        <h2>To make it easier to examine, we'll look at each temperature's distance from its average.</h2>
-        <Toggler className={styles.data}>
-          <Toggle
-            options={dataOptions}
-            onChange={this.handleToggle("view")}
+        <div className={styles.top}>
+          <TextBox>
+            <p>These are average temperatures for the top 20 most populous cities in the northern hemisphere, and the top 20 in the southern hemisphere.</p>
+            <p>To make it easier to examine, we'll look at each temperature's distance from its average.</p>
+          </TextBox>
+          <div className={styles.toggles}>
+            <Toggler label="Data" className={styles.data}>
+              <Toggle
+                options={dataOptions}
+                onChange={this.handleToggle("view")}
+              />
+            </Toggler>
+            <Toggler label="Color" className={styles.color}>
+              <Toggle
+                options={colorOptions}
+                onChange={this.handleToggle("color")}
+              />
+            </Toggler>
+          </div>
+        </div>
+        <div className={styles.chart}>
+          <Chart
+            spec={spec}
+            data={{ source: this.state.data }}
+            width={800}
+            height={800}
           />
-        </Toggler>
-        <Toggler className={styles.color}>
-          <Toggle
-            options={colorOptions}
-            onChange={this.handleToggle("color")}
-          />
-        </Toggler>
-        <Chart
-          spec={spec}
-          data={{ source: this.state.data }}
-          width={800}
-          height={800}
-        />
+        </div>
       </div>
     );
   }

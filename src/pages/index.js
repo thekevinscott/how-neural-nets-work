@@ -34,7 +34,7 @@ export const pages = [
   },
 ].map((page, index) => ({
   ...page,
-  url: `${index}-${page.url}`,
+  url: `${index + 1}-${page.url}`,
 }));
 
 const getPage = (index, returnNotFound = true) => pages[index] || (returnNotFound ? NotFound : null);

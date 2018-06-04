@@ -28,12 +28,12 @@ class Intro extends Component {
             onChange={this.props.handleScaleToggle}
           />
         </Toggler>
-        <h1>
+        <h2>
           Every Neural Net begins with data.
-        </h1>
-        <h1>
+        </h2>
+        <h2>
           We will look at average temperature data for the most populous cities in the world.
-        </h1>
+        </h2>
       </React.Fragment>
     );
   }

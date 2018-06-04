@@ -1,6 +1,11 @@
 .scatter {
-  padding: 20px;
+  padding: 0 20px 60px 20px;
+  height: calc(100% - 20px);
+  overflow: hidden;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
   left: 0%;
   position: absolute;
   transition-timing-function: ease-in-out;
@@ -31,11 +36,19 @@
   }
 }
 
-.toggler {
-  position: absolute;
-  margin-left: 800px;
+.chart {
+  flex: 1;
+}
 
-  &.color {
-    margin-top: 100px;
-  }
+.toggler {
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+}
+
+.toggles {
+  display: flex;
+  flex-direction: row;
 }

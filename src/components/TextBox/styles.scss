@@ -1,0 +1,18 @@
+.textBox {
+  overflow: hidden;
+  transition-duration: 0.6s;
+  max-height: 9999px;
+
+  &.closed {
+    .disclosure {
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.disclosure {
+  transform: rotate(0deg);
+  transition-duration: 0.6s;
+  position: absolute;
+  margin-left: -15px;
+}

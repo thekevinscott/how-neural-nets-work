@@ -11,7 +11,7 @@
       "type": "band",
       "domain": {
         "data": "source",
-        "field": "month"
+        "field": "shortMonth"
       },
       "range": "width",
       "padding": 0.05,
@@ -20,7 +20,7 @@
     {
       "name": "yscale",
       "domain": [
-        -30,
+        0,
         100
       ],
       "nice": true,
@@ -31,13 +31,16 @@
       "type": "ordinal",
       "domain": {"data": "source", "field": "label"},
       "range": "category"
+    },
+    {
+      "name": "size"
     }
   ],
   "axes": [
     {
       "orient": "bottom",
       "scale": "xscale",
-      "title": "Month"
+      "title": "month"
     },
     {
       "orient": "left",
@@ -56,7 +59,7 @@
         "update": {
           "x": {
             "scale": "xscale",
-            "field": "month"
+            "field": "shortMonth"
           },
           "y": {
             "scale": "yscale",
@@ -64,6 +67,9 @@
           },
           "shape": {
             "value": "circle"
+          },
+          "size": {
+            "value": "95"
           },
           "strokeWidth": {
             "value": 2

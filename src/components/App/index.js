@@ -25,7 +25,6 @@ const getPageIndex = path => {
     if (found !== null) {
       return found;
     }
-    console.log(page, index);
 
     if (page.url === path) {
       return index;
