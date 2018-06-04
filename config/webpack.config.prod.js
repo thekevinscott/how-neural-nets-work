@@ -134,7 +134,7 @@ module.exports = {
                         sourceMap: shouldUseSourceMap,
                       },
                     },
-                  ].concat(loaders.css.slice(2)),
+                  ].concat(loaders.css.use.slice(2)),
                 },
                 extractTextPluginOptions
               )
@@ -162,7 +162,7 @@ module.exports = {
                         sourceMap: shouldUseSourceMap,
                       },
                     },
-                  ].concat(loaders.sass.slice(2)),
+                  ].concat(loaders.sass.use.slice(2)),
                 },
                 extractTextPluginOptions
               )
