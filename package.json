@@ -1,8 +1,8 @@
 {
   "name": "how-neural-nets-work",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
-  "homepage": "http://thekevinscott.github.io/how-neural-nets-work/",
+  "homepage": "https://how-neural-nets-work.thekevinscott.com",
   "dependencies": {
     "@babel/plugin-transform-react-jsx": "^7.0.0-beta.49",
     "@fortawesome/fontawesome": "^1.1.8",
