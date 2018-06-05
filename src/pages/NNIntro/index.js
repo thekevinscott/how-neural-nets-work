@@ -23,6 +23,7 @@ class NNIntro extends Component {
             }, {
               cells: 2,
             }]}
+            vertical
           />
         </div>
       </div>

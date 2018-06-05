@@ -7,9 +7,26 @@ import {
   Layer,
   Circle,
   Line,
+  Shape,
 } from 'react-konva';
 import Konva from 'konva';
 import resize from 'utils/resize';
+
+const getXY = ({
+  layerIndex,
+  layers,
+  yEnd,
+
+  layerCells,
+  cellIndex,
+  numberOfTotalCells,
+}) => {
+  const distance = 1 / (numberOfTotalCells - 1);
+  return {
+    x: layerIndex / (layers.length - 1),
+    y: (distance / 2 * (numberOfTotalCells - layerCells)) + cellIndex * distance,
+  };
+};
 
 const getPointFn = ({
   vertical,
@@ -20,22 +37,148 @@ const getPointFn = ({
   layers,
 }) => ({
   cell,
-  layer: {
-    cells,
-  },
+  maxNumberOfCells,
   layerIndex,
+  layerCells,
 }) => {
+  const {
+    x,
+    y,
+  } = getXY({
+    layerIndex,
+    layers,
+    yEnd,
+
+    cellIndex: cell,
+    numberOfTotalCells: maxNumberOfCells,
+    layerCells,
+  });
+
   if (vertical) {
     return {
-      x: xStart + ((cell / (cells - 1)) * xEnd),
-      y: yStart + ((layerIndex / (layers.length - 1)) * yEnd),
+      x: xStart + (y * xEnd),
+      y: yStart + (x * yEnd),
     };
   }
 
   return {
-    x: xStart + ((layerIndex / (layers.length - 1)) * xEnd),
-    y: yStart + ((cell / (cells - 1)) * yEnd),
+    x: xStart + (x * xEnd),
+    y: yStart + (y * yEnd),
   };
+};
+
+const rand = (max, min=0) => min + Math.floor(Math.random() * (max-min));
+
+const OFFSET = 2;
+const Cell = ({
+  x,
+  y,
+  radius,
+  color,
+}) => ({
+  Offset: <Circle
+    x={x}
+    y={y+OFFSET}
+    radius={radius}
+    fill={`hsl(${rand(360)},${rand(100, 80)}%,${rand(20, 10)}%)`}
+  />,
+  Cell: <Circle
+    x={x}
+    y={y}
+    radius={radius}
+    fill={color}
+  />
+});
+
+const getColors = total => {
+  const offset = rand(360);
+  return [...Array(total).keys()].map(index => index / total * 360).map(hue => `hsl(${hue + offset},${rand(90, 50)}%,${rand(70, 40)}%)`).sort(() => (Math.random() * 2) - 1);
+};
+
+const CellLine = ({
+  x,
+  y,
+  previousLayerCell,
+  radius,
+  stretchy,
+  color,
+}) => {
+  let angle = 180 - Math.atan2(y - previousLayerCell.y, x - previousLayerCell.x) * 180 / Math.PI;
+  if (stretchy) {
+    const halfway = [
+      x + (previousLayerCell.x - x) / 2,
+      y + (previousLayerCell.y - y) / 2,
+    ];
+    angle = 180 - angle;
+    const pull = 0.55;
+    const offRadius = 0.99;
+    return (
+      <Line
+        points={[
+          previousLayerCell.x - (Math.sin(angle / 180 * Math.PI)*radius*offRadius),
+          previousLayerCell.y - (Math.cos(angle / 180 * Math.PI)*radius*offRadius),
+          previousLayerCell.x - (Math.sin(angle / 180 * Math.PI)*radius*offRadius),
+          previousLayerCell.y - (Math.cos(angle / 180 * Math.PI)*radius*offRadius),
+
+          // the pull
+          halfway[0] + (Math.sin(angle / 180 * Math.PI)*radius*pull),
+          halfway[1] + (Math.cos(angle / 180 * Math.PI)*radius*pull),
+
+          x - (Math.sin(angle / 180 * Math.PI) * radius*offRadius),
+          y - (Math.cos(angle / 180 * Math.PI) * radius*offRadius),
+
+          x + (Math.sin(angle / 180 * Math.PI) * radius*offRadius),
+          y + (Math.cos(angle / 180 * Math.PI) * radius*offRadius),
+          x + (Math.sin(angle / 180 * Math.PI) * radius*offRadius),
+          y + (Math.cos(angle / 180 * Math.PI) * radius*offRadius),
+          x + (Math.sin(angle / 180 * Math.PI) * radius*offRadius),
+          y + (Math.cos(angle / 180 * Math.PI) * radius*offRadius),
+
+          halfway[0] - (Math.sin(angle / 180 * Math.PI)*radius*pull),
+          halfway[1] - (Math.cos(angle / 180 * Math.PI)*radius*pull),
+
+          previousLayerCell.x + (Math.sin(angle / 180 * Math.PI)*radius*offRadius),
+          previousLayerCell.y + (Math.cos(angle / 180 * Math.PI)*radius*offRadius),
+          previousLayerCell.x + (Math.sin(angle / 180 * Math.PI)*radius*offRadius),
+          previousLayerCell.y + (Math.cos(angle / 180 * Math.PI)*radius*offRadius),
+        ]}
+        bezier
+        closed
+        fill={"rgba(0,0,0,0.4)"}
+        strokeWidth={0}
+      />
+    );
+  }
+
+  const offRadius = 0.15;
+  const points = [
+    previousLayerCell.x - (Math.sin(angle / 180 * Math.PI)*radius*offRadius),
+    previousLayerCell.y - (Math.cos(angle / 180 * Math.PI)*radius*offRadius),
+    x - (Math.sin(angle / 180 * Math.PI) * radius*offRadius),
+    y - (Math.cos(angle / 180 * Math.PI) * radius*offRadius),
+    x + (Math.sin(angle / 180 * Math.PI) * radius*offRadius),
+    y + (Math.cos(angle / 180 * Math.PI) * radius*offRadius),
+    previousLayerCell.x + (Math.sin(angle / 180 * Math.PI)*radius*offRadius),
+    previousLayerCell.y + (Math.cos(angle / 180 * Math.PI)*radius*offRadius),
+  ];
+  // angle = 180 - angle;
+  return (
+    <React.Fragment>
+      <Line
+        points={points.map((point, index) => index % 2 ? point + 2 : point)}
+        closed
+        fill={`hsl(${rand(360)},${rand(100, 80)}%,${rand(20, 10)}%)`}
+      />
+      <Line
+        points={points}
+        closed
+        fillLinearGradientStartPoint={previousLayerCell}
+        fillLinearGradientEndPoint={{ x, y }}
+        fillLinearGradientColorStops={[1, color, 0, previousLayerCell.color]}
+        strokeWidth={0}
+      />
+    </React.Fragment>
+  );
 };
 
 const Body = ({
@@ -46,24 +189,61 @@ const Body = ({
   radius,
   vertical,
 }) => {
+  const maxNumberOfCells = layers.reduce((max, { cells }) => cells > max ? cells : max, 0);
+  const totalNumberOfCells = layers.reduce((total, { cells }) => total + cells, 0);
+  const colors = getColors(totalNumberOfCells);
+  const points = layers.reduce((obj, layer, layerIndex) => {
+    const xStart = radius + padding;
+    const yStart = radius + padding;
+    const xEnd = width - (radius * 2) - (padding * 2);
+    const yEnd = height - (radius * 3) - (padding * 2);
+    const getPoint = getPointFn({
+      vertical,
+      xStart,
+      yStart,
+      xEnd,
+      yEnd,
+      layers,
+    });
+
+    return {
+      ...obj,
+      [layerIndex]: [...Array(layer.cells).keys()].reduce((cells, cell) => {
+        const {
+          x,
+          y,
+        } = getPoint({
+          cell,
+
+          layerCells: layer.cells,
+          maxNumberOfCells,
+          layerIndex,
+        });
+
+        return {
+          ...cells,
+          [cell]: {
+            x,
+            y,
+            color: colors.pop(),
+          },
+        };
+      }, {}),
+    };
+  }, {});
+
+  let Cells = [];
+  let Offsets = [];
+
   return (
     <Stage
       width={width}
       height={height}
     >
+      <Layer>
+        {Offsets}
+      </Layer>
       {layers.map((layer, layerIndex) => {
-        const xStart = radius + padding;
-        const yStart = radius + padding;
-        const xEnd = width - (radius * 2) - (padding * 2);
-        const yEnd = height - (radius * 3) - (padding * 2);
-        const getPoint = getPointFn({
-          vertical,
-          xStart,
-          yStart,
-          xEnd,
-          yEnd,
-          layers,
-        });
         return (
           <Layer
             key={layerIndex}
@@ -73,46 +253,45 @@ const Body = ({
               const {
                 x,
                 y,
-              } = getPoint({
-                cell,
+                color,
+              } = points[layerIndex][cell];
 
-                layer,
-                layerIndex,
+              const {
+                Cell: Cll,
+                Offset,
+              } = Cell({
+                x,
+                y,
+                radius,
+                color,
               });
 
-              return (
-                <React.Fragment
-                  key={cell}
-                >
-                  <Circle
-                    x={x}
-                    y={y}
-                    radius={radius}
-                    fill={Konva.Util.getRandomColor()}
-                  />
-                  {(layerIndex <= layers.length - 1) && (
-                    <Line
-                      points={[
-                        x,
-                        y,
-                        ...getPoint({
-                          cell: 1,
-                          layer: {
-                            cells: 2,
-                          },
-                          layerIndex: layerIndex + 1,
-                        }),
-                      ]}
-                      stroke={5}
-                      fill={Konva.Util.getRandomColor()}
+              Cells.push(Cll);
+              Offsets.push(Offset);
+              if (layerIndex > 0) {
+                return Object.entries(points[layerIndex - 1]).sort((a, b) => {
+                  return a[0] - b[0];
+                }).map(([_, cell]) => cell).reverse().map((previousLayerCell, key) => (
+                  <React.Fragment
+                    key={cell}
+                  >
+                    <CellLine
+                      x={x}
+                      y={y}
+                      previousLayerCell={previousLayerCell}
+                      radius={radius}
+                      color={color}
                     />
-                  )}
-                </React.Fragment>
-              );
+                  </React.Fragment>
+                ));
+              }
             })}
           </Layer>
         );
       })}
+      <Layer>
+        {Cells}
+      </Layer>
     </Stage>
   );
 };
@@ -136,6 +315,7 @@ class NeuralNet extends Component {
     const {
       className,
       layers,
+      vertical,
     } = this.props;
 
     const padding = 30;
@@ -148,7 +328,7 @@ class NeuralNet extends Component {
       >
         {this.state.ref && (
           <Body
-            vertical
+            vertical={vertical}
             width={this.state.ref.offsetWidth}
             height={this.state.ref.offsetHeight}
             layers={layers}
@@ -163,10 +343,12 @@ class NeuralNet extends Component {
 
 NeuralNet.propTypes = {
   className: PropTypes.string.isRequired,
+  vertical: PropTypes.bool,
 };
 
 NeuralNet.defaultProps = {
   className: '',
+  vertical: false,
 };
 
 export default resize()(NeuralNet);
