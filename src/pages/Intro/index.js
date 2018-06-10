@@ -12,7 +12,6 @@ const Toggler = ({ className, children }) => (
 
 class Intro extends Component {
   render() {
-    console.log(this.props.scale);
     return (
       <React.Fragment>
         <Toggler>

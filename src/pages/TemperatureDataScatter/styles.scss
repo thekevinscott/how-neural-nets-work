@@ -13,31 +13,33 @@
   opacity: 0;
 
   &.enteringBefore {
-    left: -20%;
+    top: -20%;
   }
   &.enteringAfter {
-    left: 20%;
+    top: 20%;
   }
   &.entered {
-    left: 0%;
+    top: 0%;
     opacity: 1;
   }
   &.exitingBefore {
-    left: -20%;
+    top: -20%;
   }
   &.exitingAfter {
-    left: 20%;
+    top: 20%;
   }
   &.exitedBefore {
-    left: -20%;
+    top: -20%;
   }
   &.exitedAfter {
-    left: 20%;
+    top: 20%;
   }
 }
 
 .chart {
   flex: 1;
+  overflow: hidden;
+  background: #EEE;
 }
 
 .toggler {
@@ -46,9 +48,14 @@
 .top {
   display: flex;
   flex-direction: row;
+  min-height: 200px;
+  background: #DDD;
 }
 
 .toggles {
+  position: absolute;
+  top: 0;
+  right: 40px;
   display: flex;
   flex-direction: row;
 }

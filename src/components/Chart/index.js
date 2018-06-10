@@ -12,24 +12,42 @@ class Chart extends Component {
       vega: createClassFromSpec('Chart', {
         ...props.spec,
       }),
+      width: props.width,
+      height: props.height,
     };
   }
 
   getRef = ref => {
     if (!this.ref) {
       this.ref = ref;
+      this.rerender();
     }
   }
 
-  componentDidUpdate() {
+  rerender = () => {
+    const width = this.ref.offsetWidth;
+    const height = this.ref.offsetHeight;
+    if (height > 2000) {
+      throw new Error('Something is wrong with the Chart');
+    }
+    this.setState({
+      vega: createClassFromSpec('Chart', {
+        ...this.props.spec,
+        width,
+        height,
+      }),
+      width,
+      height,
+    });
+  }
+
+  componentWillReceiveProps() {
     if (this.ref) {
-      this.setState({
-        vega: createClassFromSpec('Chart', {
-          ...this.props.spec,
-          width: this.ref.offsetWidth,
-          height: this.ref.offsetHeight,
-        }),
-      });
+      const width = this.ref.offsetWidth;
+      const height = this.ref.offsetHeight;
+      if (this.state.width !== width || this.state.height !== height) {
+        this.rerender();
+      }
     }
   }
 

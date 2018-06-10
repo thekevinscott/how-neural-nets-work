@@ -6290,6 +6290,14 @@ react-dom@^16.4.0:
     object-assign "^4.1.1"
     prop-types "^15.6.0"
 
+react-earth@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-earth/-/react-earth-0.1.2.tgz#1d8f2f31ceee0ec3a8cfbc9bff100eeff5046604"
+  dependencies:
+    react "^16.4.0"
+    react-dom "^16.4.0"
+    three "^0.83.0"
+
 react-error-overlay@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.0.tgz#d198408a85b4070937a98667f500c832f86bd5d4"
@@ -7394,6 +7402,10 @@ test-exclude@^4.2.1:
 text-table@0.2.0, text-table@~0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/text-table/-/text-table-0.2.0.tgz#7f5ee823ae805207c00af2df4a84ec3fcfa570b4"
+
+three@^0.83.0:
+  version "0.83.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.83.0.tgz#3b7f94790af3e021dac1f44a2617569ca2032b0b"
 
 throat@^3.0.0:
   version "3.2.0"

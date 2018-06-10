@@ -15,7 +15,7 @@ import {
 
 const DURATION = 1000;
 
-const getPath = () => window.location.pathname.split('/').filter(p => p).shift();
+const getPath = () => window.location.hash.substring(1);
 const getPageIndex = path => {
   if (!path) {
     return 0;
@@ -54,11 +54,26 @@ class App extends Component {
     };
   }
 
-  changePage = ({ current }) => {
+  componentDidMount() {
+    window.addEventListener("hashchange", this.pageChanged, false);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener("hashchange", this.pageChanged);
+  }
+
+  pageChanged = () => {
+    const path = getPath();
     this.setState({
-      current,
+      current: getPageIndex(path),
     });
-    window.history.pushState(null, null, pages[current].url);
+  };
+
+  changePage = ({ current }) => {
+    // this.setState({
+    //   current,
+    // });
+    window.location.hash = pages[current].url;
   }
 
   handlePrev = () => {

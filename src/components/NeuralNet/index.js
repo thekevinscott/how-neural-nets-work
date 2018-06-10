@@ -77,12 +77,14 @@ const Cell = ({
   color,
 }) => ({
   Offset: <Circle
+    key={`offset-${x}${y}`}
     x={x}
     y={y+OFFSET}
     radius={radius}
     fill={`hsl(${rand(360)},${rand(100, 80)}%,${rand(20, 10)}%)`}
   />,
   Cell: <Circle
+    key={`circle-${x}${y}`}
     x={x}
     y={y}
     radius={radius}
@@ -273,7 +275,7 @@ const Body = ({
                   return a[0] - b[0];
                 }).map(([_, cell]) => cell).reverse().map((previousLayerCell, key) => (
                   <React.Fragment
-                    key={cell}
+                    key={`cell-line-${layerIndex}-${cell}-${key}`}
                   >
                     <CellLine
                       x={x}

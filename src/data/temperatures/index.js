@@ -49,4 +49,8 @@ const data = csv.slice(1).filter(point => {
   shortMonth: point.month.substring(0, 3),
 }));
 
-export default data;
+const numberOfCities = 20;
+const northern = data.slice(0, numberOfCities * 12);
+const southern = data.slice(240, 240 + numberOfCities * 12);
+
+export default northern.concat(southern);

@@ -52,7 +52,6 @@ const fromMean = data => {
     };
   }, {});
 
-  console.log(cities);
   return data.map(d => ({
     ...d,
     // temp: (d.temp - cities[d.city].mean,
@@ -183,10 +182,6 @@ class TemperatureDataScatter extends Component {
         }}
       >
         <div className={styles.top}>
-          <TextBox>
-            <p>These are average temperatures for the top 20 most populous cities in the northern hemisphere, and the top 20 in the southern hemisphere.</p>
-            <p>To make it easier to examine, we'll look at each temperature's distance from its average.</p>
-          </TextBox>
           <div className={styles.toggles}>
             <Toggler label="Data" className={styles.data}>
               <Toggle
