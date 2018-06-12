@@ -5,9 +5,15 @@ import Transition from '../Transition';
 import styles from './styles.scss';
 import ReactEarth from 'react-earth';
 
-import map from '../../assets/8081_earthmap10k.jpg';
-import bumpMap from '../../assets/8081_earthbump10k.jpg';
-import specular from '../../assets/8081_earthspec10k.jpg';
+// import map from '../../assets/8081_earthmap2k.jpg';
+// import bumpMap from '../../assets/8081_earthbump2k.jpg';
+// import specular from '../../assets/8081_earthspec2k.jpg';
+import map from '../../assets/8081_earthmap4k.jpg';
+import bumpMap from '../../assets/8081_earthbump4k.jpg';
+import specular from '../../assets/8081_earthspec4k.jpg';
+// import map from '../../assets/8081_earthmap10k.jpg';
+// import bumpMap from '../../assets/8081_earthbump10k.jpg';
+// import specular from '../../assets/8081_earthspec10k.jpg';
 
 class TheWorld extends Component {
   constructor(props) {
