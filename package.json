@@ -2,7 +2,6 @@
   "name": "how-neural-nets-work",
   "version": "0.2.0",
   "private": true,
-
   "homepage": "https://how-neural-nets-work.thekevinscott.com",
   "dependencies": {
     "@babel/plugin-transform-react-jsx": "^7.0.0-beta.49",
@@ -44,6 +43,7 @@
     "react": "^16.4.0",
     "react-dev-utils": "^5.0.1",
     "react-dom": "^16.4.0",
+    "react-earth": "^0.1.2",
     "react-konva": "^1.7.4",
     "react-transition-group": "^2.3.1",
     "react-vega": "^3.1.2",
