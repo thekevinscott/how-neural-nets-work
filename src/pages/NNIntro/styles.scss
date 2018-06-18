@@ -1,8 +1,8 @@
 .nnintro {
   left: 0%;
   position: absolute;
+  width: 100%;
   height: 100%;
-  padding-bottom: 100px;
   box-sizing: border-box;
   display: flex;
   transition-timing-function: ease-in-out;
@@ -10,38 +10,38 @@
   opacity: 0;
 
   &.enteringBefore {
-    left: -20%;
+    top: -20%;
   }
   &.enteringAfter {
-    left: 20%;
+    top: 20%;
   }
   &.entered {
-    left: 0%;
+    top: 0%;
     opacity: 1;
   }
   &.exitingBefore {
-    left: -20%;
+    top: -20%;
   }
   &.exitingAfter {
-    left: 20%;
+    top: 20%;
   }
   &.exitedBefore {
-    left: -20%;
+    top: -20%;
   }
   &.exitedAfter {
-    left: 20%;
+    top: 20%;
   }
 }
 
 .container {
-  padding: 20px;
+  width: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .canvas {
   overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.4);
+  height: 100%;
+  width: 100%;
   flex: 1;
-  margin-top: 20px;
 }

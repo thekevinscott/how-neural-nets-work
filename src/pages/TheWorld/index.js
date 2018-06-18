@@ -15,6 +15,34 @@ import specular from '../../assets/8081_earthspec4k.jpg';
 // import bumpMap from '../../assets/8081_earthbump10k.jpg';
 // import specular from '../../assets/8081_earthspec10k.jpg';
 
+const getCities = data => {
+  return Object.entries(data.reduce((cities, { city, latitude, longitude }) => ({
+    ...cities,
+    [city]: {
+      lat: latitude,
+      lng: longitude,
+    },
+  }), {})).map(([city, values]) => ({
+    city,
+    ...values,
+  }));
+    // const cities = [{
+    //   "lat": 42.3601,
+    //   "lng": 71.0589,
+    // }, {
+    //   "lat": 74.0721,
+    //   "lng": 4.7110,
+    // }, {
+    //   "lat": 45.31,
+    //   "lng": 2.04,
+    // }, {
+    //   "lat": 174.72,
+    //   "lng": 36.8249,
+    // }, {
+    //   "lat": 18.42,
+    //   "lng": 33.9249,
+    // }];
+};
 class TheWorld extends Component {
   constructor(props) {
     super(props);
@@ -71,23 +99,9 @@ class TheWorld extends Component {
       }),
     );
 
-    const cities = [{
-      "lat": 42.3601,
-      "lng": 71.0589,
-    }, {
-      "lat": 74.0721,
-      "lng": 4.7110,
-    }, {
-      "lat": 45.31,
-      "lng": 2.04,
-    }, {
-      "lat": 174.72,
-      "lng": 36.8249,
-    }, {
-      "lat": 18.42,
-      "lng": 33.9249,
-    }];
-    // console.log(Object.values(this.state.cities));
+    const cities = getCities(this.props.data).slice(0, 1);
+
+    console.log(cities);
 
     return (
       <div
@@ -105,6 +119,8 @@ class TheWorld extends Component {
           speed={3}
           cloudOpacity={0.32}
           cities={cities}
+          citySize={1.5}
+          cityOpacity={0.7}
           textures={{
             map,
             bumpMap,

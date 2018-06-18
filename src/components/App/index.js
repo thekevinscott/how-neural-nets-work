@@ -3,36 +3,18 @@ import styles from "./styles.scss";
 import Controls from 'components/Controls';
 import Page from 'components/Page';
 import csv from 'data/temperatures';
+// import model from './model';
 
 import {
   get,
   save,
 } from 'utils/user';
 
-import {
-  pages,
-} from 'pages';
+import pages from 'pages';
 
 const DURATION = 1000;
 
 const getPath = () => window.location.hash.substring(1);
-const getPageIndex = path => {
-  if (!path) {
-    return 0;
-  }
-
-  return pages.reduce((found, page, index) => {
-    if (found !== null) {
-      return found;
-    }
-
-    if (page.url === path) {
-      return index;
-    }
-
-    return null;
-  }, null);
-};
 
 const parseData = (data, scale) => data.map(point => ({
   ...point,
@@ -41,21 +23,41 @@ const parseData = (data, scale) => data.map(point => ({
 
 const convertToCelsius = temp => (temp - 32) * 5 / 9;
 
+const getNumPages = pages => pages.reduce((sum, { leaves }) => sum + leaves, 0);
+
+const getParams = () => window.location.search.substring(1).split('&').reduce((params, pair) => {
+  const [
+    key,
+    value,
+  ] = pair.split('=');
+
+  return {
+    ...params,
+    [key]: value,
+  };
+}, {
+  controls: true,
+});
+
 class App extends Component {
   constructor(props) {
     super(props);
 
     const path = getPath();
 
+    const params = getParams();
+
     this.state = {
       scale: get().scale || "f",
-      current: getPageIndex(path),
+      controls: !!Number(params.controls),
+      current: Number(path),
       data: csv,
     };
   }
 
   componentDidMount() {
     window.addEventListener("hashchange", this.pageChanged, false);
+    // model(this.state.data);
   }
 
   componentWillUnmount() {
@@ -65,15 +67,12 @@ class App extends Component {
   pageChanged = () => {
     const path = getPath();
     this.setState({
-      current: getPageIndex(path),
+      current: Number(path),
     });
   };
 
   changePage = ({ current }) => {
-    // this.setState({
-    //   current,
-    // });
-    window.location.hash = pages[current].url;
+    window.location.hash = current;
   }
 
   handlePrev = () => {
@@ -85,7 +84,7 @@ class App extends Component {
   }
 
   handleNext = () => {
-    if (this.state.current < pages.length - 1 ) {
+    if (this.state.current < getNumPages(pages) - 1 ) {
       this.changePage({
         current: this.state.current + 1,
       });
@@ -104,19 +103,30 @@ class App extends Component {
   render() {
     return (
       <div className={styles.app}>
+        <div style={{
+          position: 'absolute',
+          top: 10,
+          right: 10,
+          background: 'white',
+          color: 'black',
+          zIndex: 100,
+          fontSize: 16,
+        }}>{this.state.current}</div>
         <Page
-          current={this.state.current}
+          currentURL={this.state.current}
           duration={DURATION}
           data={parseData(this.state.data, this.state.scale)}
           scale={this.state.scale}
           handleScaleToggle={this.handleScaleToggle}
         />
-        <Controls
-          total={pages.length}
-          current={this.state.current}
-          handlePrev={this.handlePrev}
-          handleNext={this.handleNext}
-        />
+        {this.state.controls && (
+          <Controls
+            total={getNumPages(pages)}
+            current={this.state.current}
+            handlePrev={this.handlePrev}
+            handleNext={this.handleNext}
+          />
+        )}
       </div>
     );
   }

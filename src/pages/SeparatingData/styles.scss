@@ -8,26 +8,26 @@
   opacity: 0;
 
   &.enteringBefore {
-    left: -20%;
+    top: -20%;
   }
   &.enteringAfter {
-    left: 20%;
+    top: 20%;
   }
   &.entered {
-    left: 0%;
+    top: 0%;
     opacity: 1;
   }
   &.exitingBefore {
-    left: -20%;
+    top: -20%;
   }
   &.exitingAfter {
-    left: 20%;
+    top: 20%;
   }
   &.exitedBefore {
-    left: -20%;
+    top: -20%;
   }
   &.exitedAfter {
-    left: 20%;
+    top: 20%;
   }
 }
 
@@ -63,7 +63,7 @@
         }
 
         &.numeric {
-          top: 100%;
+          top: -100%;
         }
       }
     }
@@ -74,7 +74,7 @@
     td {
       div {
         &.original {
-          top: -100%;
+          top: 100%;
         }
 
         &.numeric {

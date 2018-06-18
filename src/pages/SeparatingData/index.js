@@ -75,8 +75,6 @@ class SeparatingData extends Component {
         }}
       >
         <div className={classNames(styles.container, styles[this.state.view])}>
-          <p>Hemisphere is what we are predicting.</p>
-          <p>All neural networks deal only in numbers, so we need to translate our incoming data into numeric formats.</p>
           <Toggle
             className={styles.toggle}
             options={options}
@@ -86,33 +84,37 @@ class SeparatingData extends Component {
           <h1>NYC</h1>
 
           <table>
-            <tr>
-              <td>
-                <div className={styles.original}>{original.temp}</div>
-                <div className={styles.numeric}>
-                  {numeric.temp}
-                  <a title="A value between 0 and 1">*</a>
-                </div>
-              </td>
-              <td>
-                <div className={styles.original}>{original.month}</div>
-                <div className={styles.numeric}>
-                  {numeric.month}
-                  <a title="Months (and numeric arrays in general) are indexed from 0-11, so January = 0, February = 1, March = 2, etc.">*</a>
-                </div>
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>
+                  <div className={styles.original}>{original.temp}</div>
+                  <div className={styles.numeric}>
+                    {numeric.temp}
+                    <a title="This is not the actual temperature, but the difference between the month and the yearly averages.">*</a>
+                  </div>
+                </td>
+                <td>
+                  <div className={styles.original}>{original.month}</div>
+                  <div className={styles.numeric}>
+                    {numeric.month}
+                    <a title="Months (and numeric arrays in general) are indexed from 0-11, so January = 0, February = 1, March = 2, etc.">*</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
           </table>
           <table>
-            <tr>
-              <td>
-                <div className={styles.original}>{original.hemisphere}</div>
-                <div className={styles.numeric}>
-                  {numeric.hemisphere}
-                  <a title="A 1 represents the northern hemisphere, a 0 the southern hemisphere.">*</a>
-                </div>
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td>
+                  <div className={styles.original}>{original.hemisphere}</div>
+                  <div className={styles.numeric}>
+                    {numeric.hemisphere}
+                    <a title="A 1 represents the northern hemisphere, a 0 the southern hemisphere.">*</a>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>

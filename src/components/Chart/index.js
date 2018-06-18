@@ -1,70 +1,50 @@
 import React, { Component } from 'react';
-import { createClassFromSpec } from 'react-vega';
 import styles from "./styles.scss";
-import resize from 'utils/resize';
-// import getSpec from "./getSpec";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  ResponsiveContainer,
+  // Legend,
+} from 'recharts';
 
 class Chart extends Component {
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      vega: createClassFromSpec('Chart', {
-        ...props.spec,
-      }),
-      width: props.width,
-      height: props.height,
-    };
-  }
-
-  getRef = ref => {
-    if (!this.ref) {
-      this.ref = ref;
-      this.rerender();
-    }
-  }
-
-  rerender = () => {
-    const width = this.ref.offsetWidth;
-    const height = this.ref.offsetHeight;
-    if (height > 2000) {
-      throw new Error('Something is wrong with the Chart');
-    }
-    this.setState({
-      vega: createClassFromSpec('Chart', {
-        ...this.props.spec,
-        width,
-        height,
-      }),
-      width,
-      height,
-    });
-  }
-
-  componentWillReceiveProps() {
-    if (this.ref) {
-      const width = this.ref.offsetWidth;
-      const height = this.ref.offsetHeight;
-      if (this.state.width !== width || this.state.height !== height) {
-        this.rerender();
-      }
-    }
-  }
-
   render() {
-    const Vega = this.state.vega;
+    const {
+      data,
+      colors,
+    } = this.props;
 
     return (
       <div
         className={styles.container}
         ref={this.getRef}
       >
-        <Vega
-          data={this.props.data}
-        />
+        <ResponsiveContainer width="100%" height="100%">
+          <LineChart data={data}>
+            <XAxis dataKey="name"/>
+            <YAxis />
+            <CartesianGrid strokeDasharray="3 3"/>
+            {Object.keys(data[0]).filter(key => {
+              return key !== 'name';
+            }).map(city => {
+              return (
+                <Line
+                  key={city}
+                  type="monotone"
+                  stroke={colors[city]}
+                  dataKey={city}
+                />
+              );
+            })}
+          </LineChart>
+        </ResponsiveContainer>
       </div>
     );
   }
 }
 
-export default resize()(Chart);
+export default Chart;

@@ -1,6 +1,14 @@
 import React from 'react';
 import styles from "./styles.scss";
-import { pages } from 'pages';
+import pages from 'pages';
+
+const getCurrent = (currentURL, pages) => {
+  const pageMapping = pages.reduce((sum, { leaves }, index) => {
+    return sum.concat(Array(leaves).fill(index));
+  }, []);
+
+  return pageMapping[currentURL];
+};
 
 class Page extends React.Component {
   constructor(props) {
@@ -21,11 +29,13 @@ class Page extends React.Component {
 
   render() {
     const {
-      current,
+      currentURL,
       ...props
     } = this.props;
 
-    return pages.map(({ Component }, index) => {
+    const current = getCurrent(currentURL, pages);
+
+    return pages.map(({ Component, leaves = 1 }, index) => {
       const visible = Math.abs(index - current);
 
       return (

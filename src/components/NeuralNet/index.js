@@ -7,10 +7,12 @@ import {
   Layer,
   Circle,
   Line,
-  Shape,
+  // Shape,
 } from 'react-konva';
 import Konva from 'konva';
 import resize from 'utils/resize';
+import model from './model';
+import ContourMap from './ContourMap';
 
 const getXY = ({
   layerIndex,
@@ -287,6 +289,8 @@ const Body = ({
                   </React.Fragment>
                 ));
               }
+
+              return null;
             })}
           </Layer>
         );
@@ -302,7 +306,7 @@ class NeuralNet extends Component {
   constructor(props) {
     super(props);
 
-    this.state = { ref: null };
+    this.state = { ref: null, preds: null, };
   }
 
   getRef = ref => {
@@ -312,6 +316,22 @@ class NeuralNet extends Component {
       });
     }
   }
+
+  componentDidMount () {
+    this.createModel();
+  }
+
+  createModel = async() => {
+    const { preds, size } = await model(this.props.data);
+    this.setState({
+      preds,
+      size,
+    });
+  }
+
+  // shouldComponentUpdate() {
+  //   // return false;
+  // }
 
   render() {
     const {
@@ -328,7 +348,25 @@ class NeuralNet extends Component {
         className={classNames(styles.nn, className)}
         ref={this.getRef}
       >
-        {this.state.ref && (
+        <div className="plots">
+          <div id="data">
+            <div className="caption">Original Data (Synthetic)</div>
+            <div className="caption">True coefficients: <span className='coeff'></span></div>
+            <div className="plot"></div>
+          </div>
+          <div id="trained">
+            <div className="caption">Fit curve with learned coefficients (after training)</div>
+            <div className="caption">Learned coefficients:
+              <span className='coeff'></span>
+            </div>
+            <div className="plot"></div>
+          </div>
+        </div>
+        {this.state.preds && (
+          <ContourMap preds={this.state.preds} size={this.state.size} />
+        )}
+
+        {false && this.state.ref && (
           <Body
             vertical={vertical}
             width={this.state.ref.offsetWidth}
